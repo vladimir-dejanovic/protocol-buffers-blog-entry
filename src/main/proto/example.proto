@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+/*
+    Code used as show case for my blog post Protocol Buffers basic stuff you need to know
+    Copyright (C) 2018  Vladimir Dejanović
+
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+
+package xyz.itshark.blog.protobuf;
+
+option java_package = "xyz.itshark.blog.protobuf.generated";
+option java_multiple_files = true;
+
+enum Status {
+     SUCCESS = 0;
+	 FAIL = 1;
+	 RANDOM = 2;
+}
+
+message Example {
+    int32 id = 1;
+	string first_name = 2;
+	string last_name = 3;
+}
+
+message Advanced {
+	repeated string text = 4;
+	Status my_status = 3;
+	Example message_example = 5;
+}
+
+message Example2 {
+	message Internal {
+			 string text = 1;
+	}
+
+	Internal valid_message = 1;
+}
